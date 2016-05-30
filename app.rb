@@ -67,11 +67,12 @@ get '/hotels/search' do
   content_type :json
   unless params[:q]
         json_status 400, "Missing search parameter"
-    end
-  if @hotels = Hotel.all(:name.like => "%#{params[:q]}%") | Hotel.all(:address.like => "%#{params[:q]}%")
-    @hotels.to_json
   else
-    json_status 404, 'Not found'
+    if @hotels = Hotel.all(:name.like => "%#{params[:q]}%") | Hotel.all(:address.like => "%#{params[:q]}%")
+      @hotels.to_json
+    else
+      json_status 404, 'Not found'
+    end
   end
 end
 
