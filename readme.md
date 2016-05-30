@@ -31,8 +31,8 @@ Press "Ctrl + C" in terminal to stop the server and then repeat step 5.
 ## Links for this API running on Heroku [Demo](https://dry-waters-79640.herokuapp.com/)
 
 - GET 'https://dry-waters-79640.herokuapp.com/hotels' for get a list of all hotels.
-- GET 'https://dry-waters-79640.herokuapp.com/hotes/:id' for get and specific hotel.
-- GET 'https://dry-waters-79640.herokuapp.com/hotes/search/:q' for search by name or address
+- GET 'https://dry-waters-79640.herokuapp.com/hotels/:id' for get and specific hotel.
+- GET 'https://dry-waters-79640.herokuapp.com/hotels/search' for search by name or address (passing 'q' param)
 - POST 'https://dry-waters-79640.herokuapp.com/hotels' for create a new hotel.
 - PUT 'https://dry-waters-79640.herokuapp.com/hotels/:id' for update a specific hotel.
 - DELETE 'https://dry-waters-79640.herokuapp.com/hotels/:id' for delte a specific hotel.
