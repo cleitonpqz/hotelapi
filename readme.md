@@ -10,7 +10,7 @@
 
         $ cd path/to/this/repository/cloned
 
-4. Excute following commandos to Install the gems:
+4. Excute following commands to Install the gems:
 
         $ gem install bundler
         $ bundle install --without production
@@ -27,3 +27,24 @@ Type that in to a web browser on your computer and you should see the contents o
 6. Whenever you change code in `app.rb` you'll need to restart the server.
 
 Press "Ctrl + C" in terminal to stop the server and then repeat step 5.
+
+## Links for this API running on Heroku [Demo](https://dry-waters-79640.herokuapp.com/)
+
+GET 'https://dry-waters-79640.herokuapp.com/hotels' for get a list of all hotels.
+GET 'https://dry-waters-79640.herokuapp.com/hotes/:id' for get and specific hotel.
+POST 'https://dry-waters-79640.herokuapp.com/hotels' for create a new hotel.
+PUT 'https://dry-waters-79640.herokuapp.com/hotels/:id' for update a specific hotel.
+DELETE 'https://dry-waters-79640.herokuapp.com/hotels/:id' for delte a specific hotel.
+
+Hotel Params:
+- **name**
+- **address**
+- **star_rating** (must be between 1 and 5)
+- **accommodation_type**, only accepts the following values:
+    - Hotel
+    - Hostel
+    - Motel
+    - Cottage
+    - Chalet
+
+
