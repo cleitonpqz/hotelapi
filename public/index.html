@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Hotel API</title>
+  <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      // Load data immediately
+      $.ajax({
+        url: '/hotels',
+        method: 'GET'
+      }).done(function (data) {
+        data.forEach(function (d) {
+          $('#hotels-index').append("<p><strong>" + d.name + "</strong>: " + d.address + "</p>");
+        });
+      });
+
+      $('#new-submit').click(function () {
+        var data = {};
+
+        // Get the data from the form elements
+        data.name = $('#new-name').val();
+        data.address = $('#new-address').val();
+        data.star_rating = $('#new-star-rating').val();
+        data.accommodation_type = $('#new-accommodation-type').val();
+
+        $.ajax({
+          url: '/hotels',
+          method: 'POST',
+          data: data
+        }).done(function (response) {
+          console.log(response);
+        }).fail(function () {
+
+        });
+
+        // Prevent the form from being submitted.
+        return false;
+      });
+    });
+  </script>
+</head>
+<body>
+  <div id="hotels-index">
+    <h2>All Hotels</h2>
+  </div>
+
+
+  <h2>New Hotel</h2>
+  <form id="new-hotel">
+    <p><strong>Name:</strong></p>
+    <input id="new-name" name="name" type="text">
+
+    <p><strong>Address:</strong></p>
+    <input id="new-address" name="address" type="text">
+
+    <p><strong>Star Rating:</strong></p>
+    <select id="new-star-rating" name="star_rating">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+
+    <p><strong>Accommodation Type:</strong></p>
+    <select id="new-accommodation-type" name="accommodation_type">
+      <option value="Hotel">Hotel</option>
+      <option value="Hostel">Hostel</option>
+      <option value="Motel">Motel</option>
+      <option value="Cottage">Cottage</option>
+      <option value="Chalet">Chalet</option>
+    </select>
+
+    <p><input id="new-submit" type="submit"></p>
+  </form>
+
+</body>
+</html>
